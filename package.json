@@ -1,0 +1,26 @@
+{
+  "name": "murpus-web",
+  "version": "1.0.0",
+  "description": "static main website for murp.us",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo 'there are no tests for this package :)'",
+    "dev": "nodemon src/index.js",
+    "prod": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keggsmurph21/murpus-web.git"
+  },
+  "author": "Kevin Murphy",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/keggsmurph21/murpus-web/issues"
+  },
+  "homepage": "https://github.com/keggsmurph21/murpus-web#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "http": "0.0.0"
+  }
+}
