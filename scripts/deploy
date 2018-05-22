@@ -1,0 +1,5 @@
+#!/bin/sh
+
+heroku login
+git remote add heroku https://git.heroku.com/murpus.git 2>/dev/null || :
+git push heroku prod
