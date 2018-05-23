@@ -1,0 +1,22 @@
+#banner {
+  display: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#banner ul {
+  list-style-type: none;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+#banner li {
+  display: inline;
+}
+
+#banner hr {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto 2em;
+}

@@ -1,0 +1,47 @@
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: #222;
+  margin: 0;
+  overflow: auto;
+}
+
+#content {
+  background-color: #ddd;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 2em 2em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  box-sizing: content-box;
+  overflow-y: auto;
+}
+
+#date {
+  float: right;
+}
+
+span.date {
+  font-style: italic;
+  color: #888;
+}
+
+a {
+  color: #222;
+  font-weight: bold;
+}
+
+ul#miscellanea {
+  list-style-type: ' - ';
+}
+
+hr {
+  width: 1em;
+  margin: 1.5em auto;
+}
