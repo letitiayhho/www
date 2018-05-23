@@ -1,9 +1,28 @@
-#!/bin/sh
+#!/bin/bash -e
 
-echo -n 'Murp.us app secret: '
-password=`read -s`
-echo
+get_password() {
+  password=$2
+  if [ -z $password ]; then
+    echo -n "$1: "
+    read -s password
+    echo
+    echo "$password" >> .env
+  fi
+}
 
-heroku config:set SECRET=$password
-git remote add heroku https://git.heroku.com/murpus.git 2>/dev/null || :
+if [ -f .env ]; then
+  . .env
+fi
+
+get_password "Murp.us secret" $APP_SECRET
+APP_SECRET=$password
+
+get_password "GroupMe group id" $GMBOT_GROUP_ID
+GMBOT_GROUP_ID=$password
+
+get_password "GroupMe bot id" $GMBOT_BOT_ID
+GMBOT_BOT_ID=$password
+
+heroku config:set "APP_SECRET=$APP_SECRET" "GMBOT_GROUP_ID=$GMBOT_GROUP_ID" "GMBOT_BOT_ID=$GMBOT_BOT_ID"
+git remote add heroku https://git.heroku.com/murpus.git >/dev/null || :
 git push heroku prod

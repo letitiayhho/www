@@ -1,5 +1,6 @@
 'use strict';
 
+const bot = require('./groupme-bot');
 const texts = [
 	'lepidopterology',
 	'damp-dirt-dust',
@@ -11,6 +12,15 @@ module.exports = (app) => {
 	// installer bootstrapper
 	app.get('/boot', (req, res) => {
 		res.redirect('https://raw.githubusercontent.com/keggsmurph21/etc/master/installers/live/bootstrap.sh');
+	});
+
+	// WhatsApp bot callback
+	app.post('/bot', (req, res) => {
+		console.log('groupme callback');
+		console.log(req);
+		res = bot.callback(req);
+		console.log('response');
+		console.log(res);
 	});
 
 	// texts :)
