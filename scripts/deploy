@@ -23,6 +23,9 @@ GMBOT_GROUP_ID=$password
 get_password "GroupMe bot id" $GMBOT_BOT_ID
 GMBOT_BOT_ID=$password
 
-heroku config:set "APP_SECRET=$APP_SECRET" "GMBOT_GROUP_ID=$GMBOT_GROUP_ID" "GMBOT_BOT_ID=$GMBOT_BOT_ID"
-git remote add heroku https://git.heroku.com/murpus.git >/dev/null || :
-git push heroku prod
+heroku config:set "APP_SECRET=$APP_SECRET" "GMBOT_GROUP_ID=$GMBOT_GROUP_ID" "GMBOT_BOT_ID=$GMBOT_BOT_ID" >/dev/null
+git remote add heroku https://git.heroku.com/murpus.git 2>/dev/null || :
+git checkout prod
+git add -u
+git commit -m "commiting for deploy"
+git push heroku prod:master

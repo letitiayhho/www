@@ -18,9 +18,9 @@ module.exports = (app) => {
 	app.post('/bot', (req, res) => {
 		console.log('groupme callback');
 		console.log(req);
-		res = bot.callback(req);
+		const cb = bot.callback(req);
 		console.log('response');
-		console.log(res);
+		console.log(cb);
 	});
 
 	// texts :)
