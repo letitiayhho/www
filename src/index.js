@@ -10,8 +10,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
-require('./routes.js')(app);
 app.use(parser.json());
+require('./routes.js')(app);
 app.use(express.static(`${__dirname}/public`));
 
 // launch server
