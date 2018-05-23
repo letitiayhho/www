@@ -10,8 +10,8 @@ const etc = 'https://raw.githubusercontent.com/keggsmurph21/etc/master';
 
 module.exports = (app) => {
 
-	app.get('/.well-known/acme-challenge/mWWcu3NL0z_0I4D7hSIS59VIJvrg9byivCMJDVqXN30', (req, res) => {
-		res.send('mWWcu3NL0z_0I4D7hSIS59VIJvrg9byivCMJDVqXN30.6hXgxEs2WZWPOb4c4dj-Jo_cpcW10BizUWfwti3eHKA');
+	app.get('/.well-known/acme-challenge/gBheRhk1_GP_hc8WfN9UL5jhbNYVjSdRX2xkyZ3X-vA', (req, res) => {
+		res.send('gBheRhk1_GP_hc8WfN9UL5jhbNYVjSdRX2xkyZ3X-vA.6hXgxEs2WZWPOb4c4dj-Jo_cpcW10BizUWfwti3eHKA');
 	})
 
 	// redirects
