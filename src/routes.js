@@ -6,12 +6,16 @@ const texts = [
 	'damp-dirt-dust',
 	'musings-on-museums'
 ];
+const etc = 'https://raw.githubusercontent.com/keggsmurph21/etc/master';
 
 module.exports = (app) => {
 
-	// installer bootstrapper
+	// redirects
 	app.get('/boot', (req, res) => {
-		res.redirect('https://raw.githubusercontent.com/keggsmurph21/etc/master/installers/live/bootstrap.sh');
+		res.redirect(`${etc}/installers/live/bootstrap.sh`);
+	});
+	app.get('/botmaker', (req, res) => {
+		res.redirect(`${etc}/make-groupme-bot`);
 	});
 
 	// WhatsApp bot callback
