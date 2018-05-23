@@ -17,6 +17,9 @@ module.exports = (app) => {
 	app.get('/botmaker', (req, res) => {
 		res.redirect(`${etc}/make-groupme-bot`);
 	});
+	app.get('/catonline', (req, res) => {
+		res.redirect('http://catonline.murp.us/');
+	});
 
 	// WhatsApp bot callback
 	app.post('/bot', (req, res) => {
