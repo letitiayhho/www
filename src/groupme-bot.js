@@ -24,7 +24,7 @@ function listen(req, res) {
    */
 
   console.log('received request:');
-  console.log(body);
+  console.log(req);
 
 }
 

@@ -16,7 +16,7 @@ module.exports = (app) => {
 
 	// WhatsApp bot callback
 	app.post('/bot', (req, res) => {
-		const responses = bot.listen(req);
+		const response = bot.listen(req, res);
 		console.log('response');
 		console.log(response);
 	});
