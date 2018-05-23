@@ -17,8 +17,8 @@ module.exports = (app) => {
 	// WhatsApp bot callback
 	app.post('/bot', (req, res) => {
 		console.log('groupme callback');
-		console.log(req);
-		const cb = bot.callback(req);
+		console.log(req.body);
+		const cb = bot.callback(req.body);
 		console.log('response');
 		console.log(cb);
 	});
