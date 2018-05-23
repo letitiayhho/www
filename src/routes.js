@@ -10,10 +10,6 @@ const etc = 'https://raw.githubusercontent.com/keggsmurph21/etc/master';
 
 module.exports = (app) => {
 
-	app.get('/.well-known/acme-challenge/gBheRhk1_GP_hc8WfN9UL5jhbNYVjSdRX2xkyZ3X-vA', (req, res) => {
-		res.send('gBheRhk1_GP_hc8WfN9UL5jhbNYVjSdRX2xkyZ3X-vA.6hXgxEs2WZWPOb4c4dj-Jo_cpcW10BizUWfwti3eHKA');
-	})
-
 	// redirects
 	app.get('/boot', (req, res) => {
 		res.redirect(`${etc}/installers/live/bootstrap.sh`);
