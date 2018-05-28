@@ -15,25 +15,24 @@ module.exports = (app) => {
 	});
 
 	// WhatsApp bot callback
+	app.put('/bot/identify', (req, res) => {
+		console.log('PUT /bot/identify');
+		const data = bot.identify(req.body);
+		res.status(data.code).json(data.message);
+	});
 	app.post('/bot/callback', (req, res) => {
-		console.log('groupme callback');
-		console.log(req);
-		res = bot.callback(req);
-		console.log('response');
-		console.log(res);
+		console.log('POST /bot/callback');
+		const data = bot.callback(req.body);
+		res.status(data.code).json(data.message);
 	});
 	app.get('/bot/queue', (req, res) => {
-		console.log('groupme unprocessed message queue');
-		res = bot.queue();
-		console.log('response');
-		console.log(res);
+		const data = bot.queue(req.body);
+		res.status(data.code).json(data.messages);
 	});
 	app.post('/bot/process', (req, res) => {
-		console.log('groupme message processing response');
-		console.log(req);
-		res = bot.process(req);
-		console.log('response');
-		console.log(res);
+		console.log('POST /bot/callback');
+		const data = bot.process(req.body);
+		res.status(data.code).json(data.message);
 	});
 
 	// texts :)
