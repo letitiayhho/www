@@ -1,0 +1,51 @@
+#!/bin/sh -e
+
+if [ -z $1 ]; then
+  echo 'missing required argument ENDPOINT'
+  exit 1
+fi
+
+URL=http://$HOST:$PORT/bot
+
+if [ "$1" = identify ]; then
+  if [ -z $2 ]; then
+    echo 'missing required argument GROUP_ID'
+    exit 3
+  fi
+  if [ -z $3 ]; then
+    echo 'missing required argument BOT_ID'
+    exit 4
+  fi
+
+  echo "PUT $URL/identify" && echo
+  curl -X PUT -H "Content-Type: application/json" -d \
+  "{\"secret\": \"$GROUPME_SECRET\",\
+    \"group\": \"$2\",\
+    \"bot\": \"$3\"}" $URL/identify
+
+  echo && echo
+
+elif [ "$1" = callback ]; then
+  if [ -z $2 ]; then
+    echo 'missing required argument JSON'
+    exit 3
+  fi
+  echo "POST $URL/callback" && echo
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback
+  echo && echo;
+elif [ "$1" = queue ]; then
+  echo "GET $URL/queue" && echo
+  curl $URL/queue
+  echo && echo;
+elif [ "$1" = process ]; then
+  if [ -z $2 ]; then
+    echo 'missing required argument JSON'
+    exit 3
+  fi
+  echo "POST $URL/callback" && echo
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback
+  echo && echo;
+else
+  echo "Unrecognized endpoint \"$1\""
+  exit 2
+fi
