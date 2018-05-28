@@ -67,6 +67,4 @@ module.exports = {
     return data;
   }
 
-}
-
-module.exports.listen = listen;
+};
