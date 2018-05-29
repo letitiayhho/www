@@ -14,8 +14,21 @@ if [ "$1" = identify ]; then
   fi
 
   echo "PUT $URL/identify" && echo
-  echo -X PUT -H "Content-Type: application/json" -d \
-  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL/identify #2>/dev/null
+  curl -X PUT -H "Content-Type: application/json" -d \
+  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL/identify 2>/dev/null
+
+  echo
+
+elif [ "$1" = identify-server ];then
+  if [ -z $2 ]; then
+    echo 'missing required argument GROUP_ID'
+    exit 3
+  fi
+
+  URL=http://murpus.herokuapp.com/bot/identify
+  echo "PUT $URL" && echo
+  curl -X PUT -H "Content-Type: application/json" -d \
+  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL 2>/dev/null
 
   echo
 
