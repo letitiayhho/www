@@ -27,7 +27,7 @@ module.exports = (app) => {
 		const data = bot.identify(req.body);
 		res.status(data.code).json(data.message);
 	});
-	app.post('/bot', (req, res) => {
+	app.post('/bot/callback', (req, res) => {
 		console.log('<ALL> /bot/callback');
 		const data = bot.callback(req);
 		res.status(data.code).json(data.message);
