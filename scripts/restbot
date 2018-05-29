@@ -21,7 +21,7 @@ if [ "$1" = identify ]; then
   curl -X PUT -H "Content-Type: application/json" -d \
   "{\"secret\": \"$GROUPME_SECRET\",\
     \"group\": \"$2\",\
-    \"bot\": \"$3\"}" $URL/identify
+    \"bot\": \"$3\"}" $URL/identify 2>/dev/null | jq
 
   echo && echo
 
@@ -31,11 +31,11 @@ elif [ "$1" = callback ]; then
     exit 3
   fi
   echo "POST $URL/callback" && echo
-  curl -H "Content-Type: application/json" -d "$2" $URL/callback
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback | jq
   echo && echo;
 elif [ "$1" = queue ]; then
   echo "GET $URL/queue" && echo
-  curl $URL/queue
+  curl $URL/queue | jq
   echo && echo;
 elif [ "$1" = process ]; then
   if [ -z $2 ]; then
@@ -43,7 +43,7 @@ elif [ "$1" = process ]; then
     exit 3
   fi
   echo "POST $URL/callback" && echo
-  curl -H "Content-Type: application/json" -d "$2" $URL/callback
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback | jq
   echo && echo;
 else
   echo "Unrecognized endpoint \"$1\""
