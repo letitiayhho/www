@@ -19,3 +19,7 @@ git checkout prod
 git add -u
 git commit -m "commiting for deploy"
 git push heroku prod:master
+
+sleep 30
+./scripts/restbot identify $GROUP_ID
+heroku logs --tail
