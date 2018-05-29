@@ -29,7 +29,7 @@ module.exports = (app) => {
 	});
 	app.post('/bot/callback', (req, res) => {
 		console.log('<ALL> /bot/callback');
-		const data = bot.callback(req);
+		const data = bot.callback(req.body);
 		res.status(data.code).json(data.message);
 	});
 	app.get('/bot/queue', (req, res) => {
