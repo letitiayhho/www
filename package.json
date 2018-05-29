@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo 'there are no tests for this package :)'",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/index.js --ignore test",
     "start": "node src/index.js"
   },
   "repository": {

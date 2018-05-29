@@ -25,21 +25,21 @@ module.exports = (app) => {
 	app.put('/bot/identify', (req, res) => {
 		console.log('PUT /bot/identify');
 		const data = bot.identify(req.body);
-		res.status(data.code).json(data.message);
+		res.status(data.code).json(data.body);
 	});
 	app.post('/bot/callback', (req, res) => {
-		console.log('<ALL> /bot/callback');
+		console.log('POST /bot/callback');
 		const data = bot.callback(req.body);
-		res.status(data.code).json(data.message);
+		res.status(data.code).json(data.body);
 	});
 	app.get('/bot/queue', (req, res) => {
 		const data = bot.queue(req.body);
-		res.status(data.code).json(data.messages);
+		res.status(data.code).json(data.body);
 	});
 	app.post('/bot/process', (req, res) => {
-		console.log('POST /bot/callback');
+		console.log('POST /bot/process');
 		const data = bot.process(req.body);
-		res.status(data.code).json(data.message);
+		res.status(data.code).json(data.body);
 	});
 
 	// texts :)

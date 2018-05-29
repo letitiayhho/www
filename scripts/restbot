@@ -12,18 +12,12 @@ if [ "$1" = identify ]; then
     echo 'missing required argument GROUP_ID'
     exit 3
   fi
-  if [ -z $3 ]; then
-    echo 'missing required argument BOT_ID'
-    exit 4
-  fi
 
   echo "PUT $URL/identify" && echo
   curl -X PUT -H "Content-Type: application/json" -d \
-  "{\"secret\": \"$GROUPME_SECRET\",\
-    \"group\": \"$2\",\
-    \"bot\": \"$3\"}" $URL/identify 2>/dev/null | jq
+  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL/identify 2>/dev/null | jq
 
-  echo && echo
+  echo
 
 elif [ "$1" = callback ]; then
   if [ -z $2 ]; then
@@ -31,20 +25,20 @@ elif [ "$1" = callback ]; then
     exit 3
   fi
   echo "POST $URL/callback" && echo
-  curl -H "Content-Type: application/json" -d "$2" $URL/callback | jq
-  echo && echo;
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback 2>/dev/null | jq
+  echo
 elif [ "$1" = queue ]; then
   echo "GET $URL/queue" && echo
-  curl $URL/queue | jq
-  echo && echo;
+  curl $URL/queue 2>/dev/null | jq
+  echo
 elif [ "$1" = process ]; then
   if [ -z $2 ]; then
     echo 'missing required argument JSON'
     exit 3
   fi
   echo "POST $URL/callback" && echo
-  curl -H "Content-Type: application/json" -d "$2" $URL/callback | jq
-  echo && echo;
+  curl -H "Content-Type: application/json" -d "$2" $URL/callback 2>/dev/null | jq
+  echo
 else
   echo "Unrecognized endpoint \"$1\""
   exit 2
