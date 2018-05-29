@@ -22,4 +22,4 @@ git push heroku prod:master
 heroku logs --tail
 
 sleep 30
-./scripts/restbot identify-server $GROUP_ID
+./scripts/restbot identify-server $GROUP_ID $FRAMBUESA_SECRET
