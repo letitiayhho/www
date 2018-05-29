@@ -15,7 +15,7 @@ if [ "$1" = identify ]; then
 
   echo "PUT $URL/identify" && echo
   curl -X PUT -H "Content-Type: application/json" -d \
-  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL/identify 2>/dev/null | jq
+  "{\"secret\": \"$FRAMBUESA_SECRET\", \"group_id\": \"$2\"}" $URL/identify 2>/dev/null
 
   echo
 

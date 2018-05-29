@@ -14,9 +14,6 @@ if [ -f .env ]; then
   . .env
 fi
 
-#APP_SECRET=`get_password "murp.us secret" $APP_SECRET`
-
-#heroku config:set "APP_SECRET=$APP_SECRET" >/dev/null
 git remote add heroku https://git.heroku.com/murpus.git 2>/dev/null || :
 git checkout prod
 git add -u
