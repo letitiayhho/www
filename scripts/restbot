@@ -36,6 +36,7 @@ elif [ "$1" = process ]; then
     echo 'missing required argument JSON'
     exit 3
   fi
+  echo  "2:$2" >&2
   echo "POST $URL/callback" && echo
   curl -H "Content-Type: application/json" -d "$2" $URL/callback 2>/dev/null | jq
   echo
