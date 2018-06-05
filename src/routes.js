@@ -11,6 +11,9 @@ const etc = 'https://raw.githubusercontent.com/keggsmurph21/etc/master';
 module.exports = (app) => {
 
 	// redirects
+	app.get('/photo-essay', (req, res) => {
+		res.redirect('https://docs.google.com/presentation/d/1OtbrhM4zozMMF8G1_XZrAQqemhGD5vCnUTTCGM7kbVM/');
+	});
 	app.get('/boot', (req, res) => {
 		res.redirect(`${etc}/installers/live/bootstrap.sh`);
 	});
