@@ -53,6 +53,12 @@ module.exports = (app) => {
 		});
 	});
 
+    // sheets-cli oauth stuff?
+    app.get('/sheets-cli/about', (req, res) => {
+        console.log("GET /sheets-cli/about");
+        res.render("sheets-cli/about.ejs");
+    });
+
 	// home page
 	app.get('/', (req, res) => {
 		res.render('index.ejs');
