@@ -1,2 +1,2 @@
-# murpus-web
-static main website for murp.us
+### www
+static files for [murp.us](http://murp.us)
