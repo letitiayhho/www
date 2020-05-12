@@ -59,6 +59,11 @@ module.exports = (app) => {
         res.render("sheets-cli/about.ejs");
     });
 
+    app.get('/resume', (req, res) => {
+        console.log("GET /resume");
+        res.render("resume.ejs");
+    });
+
 	// home page
 	app.get('/', (req, res) => {
 		res.render('index.ejs');
