@@ -64,6 +64,11 @@ module.exports = (app) => {
         res.render("resume.ejs");
     });
 
+    app.get('/donuts', (req, res) => {
+        console.log("GET /donuts");
+        res.render("donuts.ejs");
+    });
+
 	// home page
 	app.get('/', (req, res) => {
 		res.render('index.ejs');

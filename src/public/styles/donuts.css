@@ -1,0 +1,59 @@
+body#donuts {
+    cursor: url("/images/donut-frosted@16x16.png"), default;
+}
+
+body#donuts a, .glazed-pointer {
+    cursor: url("/images/donut-glazed@16x16.png"), pointer;
+}
+
+body#donuts #content {
+    /* override site-wide #content padding */
+    padding: 0;
+}
+
+#about {
+    padding: 2em 1em;
+}
+
+.donut-review {
+    display: flex;
+    flex-flow: column;
+    padding: 0 1em;
+}
+
+.donut-review:hover {
+    background-color: #b0b0b0;
+}
+
+.review-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.donut-shop {
+    margin: 1em 0;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.donut-shop::before {
+    margin-right: 0.3em;
+    vertical-align: top;
+}
+
+.donut-review:nth-child(even) .donut-shop::before {
+    content: url("/images/donut-frosted@16x16.png");
+}
+
+.donut-review:nth-child(odd) .donut-shop::before {
+    content: url("/images/donut-glazed@16x16.png");
+}
+
+.donut-type {
+    font-weight: bold;
+}
+
+.donut-notes {
+    margin: 0 0 1em;
+}
